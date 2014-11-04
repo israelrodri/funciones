@@ -1,0 +1,22 @@
+function z = genzmesh(xr, yr, f)
+
+m = max(size(xr));
+n = max(size(yr));
+
+z=ones(m,n);
+
+if ischar(f)
+   s = 1;
+else
+   s = 0;
+end
+
+for i=1:m,
+   for j=1:n,
+      if s == 1
+         eval(f);
+      else
+         z(j,i) = f((i-1)*n + j);
+      end
+   end
+end 
