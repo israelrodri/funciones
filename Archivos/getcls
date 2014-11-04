@@ -1,0 +1,10 @@
+function cls = getcls(vecs)
+%transforma la matriz en unos y ceros, que es el resultado deseado
+%uno es el mayor valor de cada columna
+
+[ncls, nvecs] = size(vecs);
+[tmp, c] = max(vecs);
+cls = zeros(ncls,nvecs);
+for j=1:nvecs
+  cls(c(j),j) = 1;
+end
